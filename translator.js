@@ -1,5 +1,5 @@
 const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"; 
-const snorkell = "UTMJIZPXOBQKDSAWGCXNEFRLHVutmjizpxobqkdsawgcxnefrlhv";
+const snorkell = "UTMJIZPYOBQKDSAWGCXNEFRLHVutmjizpyobqkdsawgcxnefrlhv";
 
 let translate = function() {
     let english = document.getElementById("english");
@@ -8,15 +8,27 @@ let translate = function() {
     let before = english.value;
     let after = "";
     let glyphs = "";
-    for (let i = 0; i <= before.length; i++) {
+    for (let i = 0; i < before.length; i++) {
         let ch = before.charAt(i);
         let idx = alpha.indexOf(ch);
-        if (idx > 0) {
+        if (idx >= 0) {
             after += snorkell.charAt(idx);
             glyphs += "<img src='img/snorkellblatte-" + ch.toLowerCase() + ".png'/>"
         } else {
-            // TODO: fix XSS
-            glyphs += ch;
+            if (ch === "<") {
+                glyphs += "&lt;"
+            }
+            else if (ch === ">") {
+                glyphs += "&gt;"
+            }
+            else if (ch === "&") {
+                glyphs += "amp;"
+            }
+            else if (ch === ' ') {
+                glyphs += "&nbsp;&nbsp;&nbsp;"
+            } else {
+                glyphs += ch;
+            }
             after += ch;
         }
     }
