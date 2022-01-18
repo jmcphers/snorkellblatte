@@ -17,14 +17,15 @@ let translate = function() {
         } else {
             if (ch === "<") {
                 glyphs += "&lt;"
-            }
-            else if (ch === ">") {
+            } else if (ch === ">") {
                 glyphs += "&gt;"
-            }
-            else if (ch === "&") {
+            } else if (ch === "&") {
                 glyphs += "amp;"
-            }
-            else if (ch === ' ') {
+            } else if (ch === "\n") {
+                glyphs += "<br />"
+            } else if (ch === "\r") {
+                glyphs += "<br />"
+            } else if (ch === ' ') {
                 glyphs += "&nbsp;&nbsp;&nbsp;"
             } else {
                 glyphs += ch;
