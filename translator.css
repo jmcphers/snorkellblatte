@@ -1,6 +1,14 @@
 body {
   font-family: sans-serif;
-  margin: 40px;
+  height: 100%;
+}
+
+.full {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 textarea {
@@ -8,11 +16,14 @@ textarea {
     font-size: 20pt;
     font-family: sans-serif;
     outline: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .col h3 {
-    background-color: aliceblue;
-    padding: 10px;
+  border-bottom: 1px solid black;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .row {
@@ -29,8 +40,12 @@ textarea {
   margin: 10px;
 }
 
-#spoken, #written {
+#written {
     font-size: 20pt;
+}
+
+#spoken {
+  font-size: 15pt;
 }
 
 #written img {
@@ -39,11 +54,24 @@ textarea {
     vertical-align: top;
 }
 
-#english {
-  height: 500px;
-}
-
 .banner img {
   width: 60px;
   height: 60px;
+}
+
+#translate {
+  padding: 15px;
+  background-color: crimson;
+  color: white;
+  font-size: 20pt;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+label {
+  font-size: medium;
 }

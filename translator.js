@@ -8,11 +8,20 @@ let translate = function() {
     let before = english.value;
     let after = "";
     let glyphs = "";
+    let source = "";
+    let dest = "";
+    if (document.getElementById("r-english").checked) {
+        source = snorkell;
+        dest = alpha;
+    } else {
+        source = alpha;
+        dest = snorkell;
+    }
     for (let i = 0; i < before.length; i++) {
         let ch = before.charAt(i);
-        let idx = alpha.indexOf(ch);
+        let idx = source.indexOf(ch);
         if (idx >= 0) {
-            after += snorkell.charAt(idx);
+            after += dest.charAt(idx);
             glyphs += "<img src='img/snorkellblatte-" + ch.toLowerCase() + ".png'/>"
         } else {
             if (ch === "<") {
@@ -35,14 +44,15 @@ let translate = function() {
     }
     written.innerHTML = glyphs;
     spoken.innerText = after;
+    let full = document.getElementById("full");
+    full.style.display = "none";
+    after = document.getElementById("after");
+    after.style.display = "block";
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    let english = document.getElementById("english");
-    english.addEventListener('keyup', (ev) => {
-        translate();
-    });
-    english.addEventListener('change', (ev) => {
+    let btn = document.getElementById("translate");
+    btn.addEventListener("click", (evt) => {
         translate();
     });
 });

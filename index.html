@@ -4,37 +4,56 @@
 <link rel="stylesheet" href="translator.css" />
 </head>
 <body>
-    <div class="banner">
-        <img src="img/snorkellblatte-s.png" />
-        <img src="img/snorkellblatte-n.png" />
-        <img src="img/snorkellblatte-o.png" />
-        <img src="img/snorkellblatte-r.png" />
-        <img src="img/snorkellblatte-k.png" />
-        <img src="img/snorkellblatte-e.png" />
-        <img src="img/snorkellblatte-l.png" />
-        <img src="img/snorkellblatte-l.png" />
-        <img src="img/snorkellblatte-b.png" />
-        <img src="img/snorkellblatte-l.png" />
-        <img src="img/snorkellblatte-a.png" />
-        <img src="img/snorkellblatte-t.png" />
-        <img src="img/snorkellblatte-t.png" />
-        <img src="img/snorkellblatte-e.png" />
+    <div class="full" id="full">
+        <div class="banner">
+            <img src="img/snorkellblatte-s.png" />
+            <img src="img/snorkellblatte-n.png" />
+            <img src="img/snorkellblatte-o.png" />
+            <img src="img/snorkellblatte-r.png" />
+            <img src="img/snorkellblatte-k.png" />
+            <img src="img/snorkellblatte-e.png" />
+            <img src="img/snorkellblatte-l.png" />
+            <img src="img/snorkellblatte-l.png" />
+            <img src="img/snorkellblatte-b.png" />
+            <img src="img/snorkellblatte-l.png" />
+            <img src="img/snorkellblatte-a.png" />
+            <img src="img/snorkellblatte-t.png" />
+            <img src="img/snorkellblatte-t.png" />
+            <img src="img/snorkellblatte-e.png" />
+        </div>
+        <div>
+        <h1>Snorkellblatte Translator</h1>
+        </div>
+        <div style="flex-grow: 1;">
+        <textarea id="english"></textarea>
+        </div>
+        <div style="display: flex; flex-direction: row;">
+            <div style="flex-grow: 1; padding-top: 15px;">
+                <div style="margin: 10px;">
+                <input id="r-snorkellblatte" type="radio" name="lang" value="snorkellblatte" checked>
+                <label for="r-snorkellblatte">To Snorkellblatte</label><br />
+                </div>
+                <div style="margin: 10px;">
+                <input id="r-english" type="radio" name="lang" value="english">
+                <label for="r-english">To English</label><br />
+                </div>
+            </div>
+            <div>
+                <button id="translate">Translate</button> 
+            </div>
+        </div>
     </div>
-    <h1>Snorkellblatte Translator</h1>
-
-    <div class="row">
-    <div class="col">
-    <h3>English</h3>
-    <textarea id="english"></textarea>
-    </div>
-    <div class="col">
-    <h3>Snorkellblatte (written)</h3>
-    <div id="written"></div>
-    </div>
-    <div class="col">
-    <h3>Snorkellblatte (spoken)</h3>
-    <div id="spoken"></div>
-    </div>
+    <div class="after" id="after" style="display: none;">
+        <div class="row">
+        <div class="col" style="flex-grow: 2">
+        <h3>Written</h3>
+        <div id="written"></div>
+        </div>
+        <div class="col" style="flex-grow: 1">
+        <h3>Pronunciation</h3>
+        <div id="spoken"></div>
+        </div>
+        </div>
     </div>
 </body>
 </html>
