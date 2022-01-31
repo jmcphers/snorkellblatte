@@ -53,11 +53,29 @@ let translate = function() {
     window.history.pushState({}, '')
 }
 
+let updatebutton = function() {
+    let btn = document.getElementById("translate");
+    if (document.getElementById("r-english").checked) {
+        btn.innerText = "Ncusxkuni";
+    } else {
+        btn.innerText = "Translate";
+    }
+}
+
 window.addEventListener('DOMContentLoaded', (event) => {
+    // translate on click
     let btn = document.getElementById("translate");
     btn.addEventListener("click", (evt) => {
         translate();
     });
+
+    // switch text of Translate button depending on setting
+    let radio = document.getElementById("r-english");
+    radio.addEventListener("change", (evt) => { updatebutton() });
+    radio = document.getElementById("r-snorkellblatte");
+    radio.addEventListener("change", (evt) => { updatebutton() });
+
+    // reset state on back
     window.addEventListener("popstate", (evt) => {
         let after = document.getElementById("after");
         after.style.display = "none";
