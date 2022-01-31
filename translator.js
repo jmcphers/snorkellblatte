@@ -48,11 +48,20 @@ let translate = function() {
     full.style.display = "none";
     after = document.getElementById("after");
     after.style.display = "block";
+
+    // add history entry so that you can use back to return to translation page
+    window.history.pushState({}, '')
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
     let btn = document.getElementById("translate");
     btn.addEventListener("click", (evt) => {
         translate();
+    });
+    window.addEventListener("popstate", (evt) => {
+        let after = document.getElementById("after");
+        after.style.display = "none";
+        let full = document.getElementById("full");
+        full.style.display = "flex";
     });
 });
